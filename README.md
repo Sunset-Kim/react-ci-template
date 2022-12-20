@@ -2,6 +2,13 @@
 
 > 빠른 개발환경 셋팅을 위한 보일러플레이트입니다
 
+## Start
+
+```
+npm install
+npm prepare
+```
+
 ## Available Scripts
 
 > 프로젝트안에서 다음과 같은 스크립트를 실행할 수 있습니다.
