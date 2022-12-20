@@ -1,46 +1,71 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> 빠른 개발환경 셋팅을 위한 보일러플레이트입니다
 
 ## Available Scripts
 
-In the project directory, you can run:
+> 프로젝트안에서 다음과 같은 스크립트를 실행할 수 있습니다.
+
+### `npm prepare`
+
+:: husky를 설치합니다
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+:: dev server를 실행합니다
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+:: 작성된 테스트를 실행합니다
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+::: build를 실행합니다
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm run lint`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+:: src/ 이하에 존재하는js,jsx,ts,tsx의 확장자를 가진 파일의 lint check 합니다.
 
-### `npm run eject`
+### `npm run lint:fix`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+:: src/ 이하에 존재하는 js,jsx,ts,tsx의 확장자를 가진 파일을 lint check하고 fix 합니다.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `npm run format`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+:: src/ 이하에 존재하는 js,jsx,ts,tsx,css,md,json 확장자를 가진 파일을 prettierrc의 config에 맞게 수정합니다
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## husky
 
-## Learn More
+### pre-push
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> 해당 프로젝트는 push하기전 build를 진행합니다.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+npm run build
+```
+
+### pre-commit
+
+> 해당 프로젝트는 commit을 하기전 lint, format script를 실행합니다.
+
+```
+npm run lint
+npm run format
+```
+
+### commit msg
+
+> 해당 프로젝트는 comitlint를 활용하여 다음과 같은 commit convention prefix를 가집니다.
+
+| Prefix   | Description                                                                                            |
+| -------- | ------------------------------------------------------------------------------------------------------ |
+| build    | Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)    |
+| ci       | Changes to our CI configuration files and scripts                                                      |
+| docs     | Documentation only changes                                                                             |
+| feat     | A new feature                                                                                          |
+| fix      | A bug fix                                                                                              |
+| perf     | A code change that improves performance                                                                |
+| refactor | A code change that neither fixes a bug nor adds a feature                                              |
+| style    | Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc) |
+| test     | Adding missing tests or correcting existing tests                                                      |
+|          |                                                                                                        |
